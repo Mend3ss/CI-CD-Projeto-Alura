@@ -26,4 +26,4 @@ jobs:
       run: docker compose up -d postgres
 
     - name: Executa o Lint para analise do codigo
-      run: golangci-lint run .\controllers\ .\database\ .\models\ .\routes
+      run: docker run --rm -v $(pwd):/app -w /app golangci/golangci-lint:v2.11.4 golangci-lint run
