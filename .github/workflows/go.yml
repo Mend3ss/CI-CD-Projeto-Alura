@@ -14,7 +14,7 @@ jobs:
   ci:
     runs-on: ubuntu-latest
     steps:
-	    #Acessa nossos arquivos do repositorio e os utiliza para buildar
+# Acessa nossos arquivos do repositorio e os utiliza para buildar
     - uses: actions/checkout@v4
 
     - name: Set up Go
