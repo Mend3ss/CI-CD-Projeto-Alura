@@ -114,7 +114,7 @@ func TestEditaUmAlunoHandler(t *testing.T) {
 	resposta := httptest.NewRecorder()
 	r.ServeHTTP(resposta, req)
 	var alunoMockAtualizado models.Aluno
-	json.Unmarshal(resposta.Body.Bytes(), &alunoMockAtualizado)
+	_ =	json.Unmarshal(resposta.Body.Bytes(), &alunoMockAtualizado)
 	assert.Equal(t, "47123456789", alunoMockAtualizado.CPF)
 	assert.Equal(t, "123456700", alunoMockAtualizado.RG)
 	assert.Equal(t, "Nome do Aluno Teste", alunoMockAtualizado.Nome)
