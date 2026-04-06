@@ -27,3 +27,5 @@ jobs:
 
     - name: Executa o Lint para analise do codigo
       run: docker run --rm -v $(pwd):/app -w /app golangci/golangci-lint:v2.11.4 golangci-lint run
+    - name: teste
+      run: go test -v main_test.go
