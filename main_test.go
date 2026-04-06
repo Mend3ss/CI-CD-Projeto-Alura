@@ -82,7 +82,7 @@ func TestBuscaAlunoPorIDHandler(t *testing.T) {
 	resposta := httptest.NewRecorder()
 	r.ServeHTTP(resposta, req)
 	var alunoMock models.Aluno
-	json.Unmarshal(resposta.Body.Bytes(), &alunoMock)
+	_ =	json.Unmarshal(resposta.Body.Bytes(), &alunoMock)
 	assert.Equal(t, "Nome do Aluno Teste", alunoMock.Nome, "Os nomes devem ser iguais")
 	assert.Equal(t, "12345678901", alunoMock.CPF)
 	assert.Equal(t, "123456789", alunoMock.RG)
