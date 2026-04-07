@@ -27,6 +27,16 @@ jobs:
 
     - name: Executa o Lint para analise do codigo
       run: docker run --rm -v $(pwd):/app -w /app golangci/golangci-lint:v2.11.4 golangci-lint run
+
 #Busca pelas variaveis do banco em outro lugar, como o GitHub Secrets
     - name: teste
       run: DB_HOST=${{secrets.DB_HOST}} DB_PASSWORD=${{secrets.DB_PASSWORD}} DB_USER=${{secrets.DB_USER}} DB_NAME=${{secrets.DB_NAME}} DB_PORT=${{secrets.DB_PORT}} go test -v main_test.go
+
+    - name: Build
+      run: go build main.go
+
+    - name: Compilando projeto
+      uses: actions/upload-artifact@v4
+      with:
+        name: projeto_compilado
+        path: main
